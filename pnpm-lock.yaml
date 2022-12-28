@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@emotion/react': ^11.10.5
+  '@heroicons/react': ^2.0.13
   '@mantine/core': ^5.9.5
   '@mantine/dates': ^5.9.5
   '@mantine/form': ^5.9.5
@@ -22,6 +23,7 @@ specifiers:
 
 dependencies:
   '@emotion/react': 11.10.5_zavbqmrropwrojvx6ojaa4s7im
+  '@heroicons/react': 2.0.13_react@18.2.0
   '@mantine/core': 5.9.5_si364yri63k7jawqf7p7p7wcha
   '@mantine/dates': 5.9.5_q32zbbv6l2fjmvb2dpa2q3dhma
   '@mantine/form': 5.9.5_react@18.2.0
@@ -421,6 +423,14 @@ packages:
       '@floating-ui/dom': 1.0.10
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@heroicons/react/2.0.13_react@18.2.0:
+    resolution: {integrity: sha512-iSN5XwmagrnirWlYEWNPdCDj9aRYVD/lnK3JlsC9/+fqGF80k8C7rl+1HCvBX0dBoagKqOFBs6fMhJJ1hOg1EQ==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.8:
