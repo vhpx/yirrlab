@@ -1,10 +1,4 @@
-interface BlogTabProps {
-  title: string;
-  desp: string;
-  image: string;
-}
-
-export default function BlogTab({ title, desp, image }: BlogTabProps) {
+export default function BlogTab({ title, desp, image }) {
   return (
     <div className="bg-zinc-800 h-52 xl:h-60 rounded-lg">
       <div className="border-b h-[70%] border-zinc-500">{image}</div>
