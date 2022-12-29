@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Layout from "../components/layout/Layout";
 
-export default function Home() {
+const Homepage = () => {
   return (
-    <>
+    <Layout>
       <div className="md:absolute md:right-0 md:top-16">
         <Image
           src="/featured-img.png"
@@ -27,6 +28,8 @@ export default function Home() {
           continue to pass on to current and future generations.”
         </div>
       </div>
-    </>
+    </Layout>
   );
-}
+};
+
+export default Homepage;
