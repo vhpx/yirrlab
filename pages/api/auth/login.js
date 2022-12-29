@@ -63,7 +63,7 @@ const handler = async (req, res) => {
     console.log(error);
     return res.status(500).json({
       error: {
-        message: "Something went wrong",
+        message: error.message || error || "Something went wrong",
       },
     });
   }

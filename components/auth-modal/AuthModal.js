@@ -53,7 +53,7 @@ export default function AuthModal({ closeModal }) {
     } catch (error) {
       showNotification({
         title: "Error",
-        message: "Invalid email or password.",
+        message: error.message || error || "Something went wrong",
         color: "red",
       });
     } finally {
