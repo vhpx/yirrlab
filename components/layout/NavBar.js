@@ -3,7 +3,7 @@
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import { Modal, Popover, Text, useMantineTheme } from "@mantine/core";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AuthModal from "../auth-modal/AuthModal";
 import { useUserData } from "../../hooks/useUserData";
 import { useSessionContext } from "@supabase/auth-helpers-react";
@@ -21,6 +21,10 @@ const NavBar = () => {
     await supabaseClient.auth.signOut();
     mutate("/api/user", null, false);
   };
+
+  useEffect(() => {
+    if (user?.id) setOpened(false);
+  }, [user]);
 
   return (
     <>
