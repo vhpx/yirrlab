@@ -20,7 +20,7 @@ const NavBar = () => {
         overlayBlur={4}
         centered
         size="lg"
-        radius="xl"
+        radius="lg"
       >
         <AuthModal />
       </Modal>
