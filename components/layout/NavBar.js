@@ -8,6 +8,7 @@ import AuthModal from "../auth-modal/AuthModal";
 import { useUserData } from "../../hooks/useUserData";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { mutate } from "swr";
+import { showNotification } from "@mantine/notifications";
 
 const NavBar = () => {
   const theme = useMantineTheme();
@@ -35,7 +36,7 @@ const NavBar = () => {
       >
         <AuthModal closeModal={() => setOpened(false)} />
       </Modal>
-      <nav className="w-full flex justify-between px-4 md:px-16 py-2 md:py-4">
+      <nav className="w-full flex justify-between items-center px-4 md:px-16 py-2 md:py-4">
         <div className="flex items-center gap-16">
           <Link
             href="/"
@@ -43,18 +44,23 @@ const NavBar = () => {
           >
             YirrLab
           </Link>
-          <div className="hidden md:flex gap-8 text font-semibold">
-            <button
-              onClick={() => setOpened(true)}
-              className="hover:text-[#0da955] transition"
-            >
-              Learn
-            </button>
-          </div>
+          <button
+            onClick={() =>
+              user?.id
+                ? showNotification({
+                    title: "Coming Soon",
+                    message: "This page is coming soon.",
+                  })
+                : setOpened(true)
+            }
+            className="hidden md:flex gap-8 hover:text-[#0da955] transition font-semibold"
+          >
+            Learn
+          </button>
         </div>
 
         {user?.id ? (
-          <Popover withArrow shadow="md">
+          <Popover withArrow shadow="md" position="top-end">
             <Popover.Target>
               <UserCircleIcon className="h-8 cursor-pointer md:h-10 text-[#5ec992]" />
             </Popover.Target>

@@ -63,7 +63,7 @@ export default function AuthModal({ closeModal }) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="text-center font-bold text-4xl">
+      <div className="text-center font-bold text-2xl md:text-4xl">
         {type === "login"
           ? "Welcome back"
           : type === "signup"
