@@ -9,9 +9,12 @@ import { useUserData } from "../../hooks/useUserData";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { mutate } from "swr";
 import { showNotification } from "@mantine/notifications";
+import { useRouter } from "next/router";
 
 const NavBar = () => {
+  const router = useRouter();
   const theme = useMantineTheme();
+
   const { supabaseClient } = useSessionContext();
   const { data: user } = useUserData();
 
@@ -40,7 +43,13 @@ const NavBar = () => {
       >
         <AuthModal closeModal={() => setOpened(false)} />
       </Modal>
-      <nav className="w-full flex justify-between items-center px-4 md:px-16 py-2 md:py-4">
+
+      <nav
+        id="navbar"
+        className={`w-full h-fit flex justify-between items-center px-4 md:px-16 py-2 md:py-4 ${
+          router.pathname === "/" || "border-b border-zinc-300"
+        }`}
+      >
         <div className="flex items-center gap-16">
           <Link
             href="/"

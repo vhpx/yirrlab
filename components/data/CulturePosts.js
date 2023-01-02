@@ -6,7 +6,7 @@ const posts = [
     author: "Yirrganydji",
     date: "2021-08-01",
     tags: "History, Religion, Cuisine",
-    image: "featured-img.png",
+    image: "/peacock.jpeg",
   },
   {
     title: "Egestas congue quisque egestas diam in arcu cursus euismod",
@@ -15,7 +15,7 @@ const posts = [
     author: "John Cena",
     date: "2021-08-01",
     tags: "History, Religion, Cuisine",
-    image: "peacock.jpeg",
+    image: "/peacock.jpeg",
   },
   {
     title: "Yirrgay Dialects",
@@ -24,7 +24,7 @@ const posts = [
     author: "Yirrganydji",
     date: "2021-08-01",
     tags: "History, Religion, Cuisine",
-    image: "featured-img.png",
+    image: "/peacock.jpeg",
   },
   {
     title: "Egestas congue quisque egestas diam in arcu cursus euismod",
@@ -33,7 +33,7 @@ const posts = [
     author: "John Cena",
     date: "2021-08-01",
     tags: "History, Religion, Cuisine",
-    image: "peacock.jpeg",
+    image: "/peacock.jpeg",
   },
 ].map((post, idx) => ({
   id: idx,

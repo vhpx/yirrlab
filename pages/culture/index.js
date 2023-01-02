@@ -1,10 +1,11 @@
 import { Select } from "@mantine/core";
 import PostCard from "../../components/culture/PostCard";
 import Sidebar from "../../components/layout/Sidebar";
-import { culturePosts } from "../../components/data/CulturePosts";
+import culturePosts from "../../components/data/CulturePosts";
+import Layout from "../../components/layout/Layout";
 
 export default function CulturePage() {
-  const posts = culturePosts?.map((post) => (
+  const posts = culturePosts?.map((post, idx) => (
     <PostCard
       key={post.id}
       title={post.title}
@@ -12,14 +13,16 @@ export default function CulturePage() {
       author={post.author}
       date={post.date}
       tags={post.tags}
-      image={post.image}
+      imageUrl={post.image}
+      disableBorder={idx === culturePosts.length - 1}
     />
   ));
+
   return (
-    <div className="h-screen">
-      <div className="flex h-full">
+    <Layout>
+      <div className="flex h-full max-h-full">
         <Sidebar page="culture" />
-        <div className="grow px-8 py-8">
+        <div className="overflow-y-auto border-l border-zinc-300 w-full p-8">
           <div className="justify-end items-center mb-12 flex">
             <span>
               <Select
@@ -28,55 +31,9 @@ export default function CulturePage() {
               />
             </span>
           </div>
-
-          <div className="flex overflow-y-scroll flex-col gap-5">
-            <PostCard
-              title="Egestas congue quisque egestas diam in arcu cursus euismod"
-              summary="pellentesque massa placerat duis ultricies lacus sed turpis
-                    tincidunt id aliquet risus feugiat in ante metus dictum at
-                    tempor commodo ullamcorper a lacus vestibulum aliquet risus
-                    feugiat in ante metus dictum at tempor commodo ullamcorper a
-                    lacus vestibulum sed arcu non odio euismod lacinia"
-              author="John Cena"
-              date="dd/mm/yyyy"
-              tags="History, Religion, Cuisine"
-              image="./peacock.jpeg"
-            />
-
-            <div className="w-full border"></div>
-
-            <PostCard
-              title="Egestas congue quisque egestas diam in arcu cursus euismod"
-              summary="pellentesque massa placerat duis ultricies lacus sed turpis
-                    tincidunt id aliquet risus feugiat in ante metus dictum at
-                    tempor commodo ullamcorper a lacus vestibulum aliquet risus
-                    feugiat in ante metus dictum at tempor commodo ullamcorper a
-                    lacus vestibulum sed arcu non odio euismod lacinia"
-              author="John Cena"
-              date="dd/mm/yyyy"
-              image="./peacock.jpeg"
-              tags="History, Religion, Cuisine"
-            />
-
-            <div className="w-full border"></div>
-
-            <PostCard
-              title="Egestas congue quisque egestas diam in arcu cursus euismod"
-              summary="pellentesque massa placerat duis ultricies lacus sed turpis
-                    tincidunt id aliquet risus feugiat in ante metus dictum at
-                    tempor commodo ullamcorper a lacus vestibulum aliquet risus
-                    feugiat in ante metus dictum at tempor commodo ullamcorper a
-                    lacus vestibulum sed arcu non odio euismod lacinia"
-              author="John Cena"
-              date="dd/mm/yyyy"
-              tags="History, Religion, Cuisine"
-              image="./featured-img.png"
-            />
-
-            {posts}
-          </div>
+          <div className="flex flex-col gap-4 pb-32">{posts}</div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }

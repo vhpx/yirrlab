@@ -66,27 +66,23 @@ export default function Sidebar({ page }) {
   );
 
   return (
-    <>
-      <div className="flex h-full w-72 flex-col gap-5 border-r border-zinc-400 p-5 text-zinc-500">
-        <SearchBar />
-        <div>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1">
-              <span>Filter</span>
-              <span>
-                <AdjustmentsHorizontalIcon className="w-5" />
-              </span>
-            </div>
-            <button className="bg-[#0da955] py-2 px-3 text-white">Apply</button>
-          </div>
-
-          <div className="flex flex-col overflow-y-scroll">
-            <Accordion multiple>
-              {page === "culture" ? cultureAccordion : languageAccordion}
-            </Accordion>
-          </div>
+    <div className="hidden md:flex h-full w-72 flex-col gap-5 p-5 text-zinc-500">
+      <SearchBar />
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-1">
+          <span>Filter</span>
+          <span>
+            <AdjustmentsHorizontalIcon className="w-5" />
+          </span>
         </div>
+        <button className="bg-[#0da955] py-2 px-3 text-white">Apply</button>
       </div>
-    </>
+
+      <div className="flex flex-col h-full">
+        <Accordion multiple>
+          {page === "culture" ? cultureAccordion : languageAccordion}
+        </Accordion>
+      </div>
+    </div>
   );
 }
