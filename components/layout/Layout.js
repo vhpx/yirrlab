@@ -1,6 +1,5 @@
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import { useEffect } from "react";
 
 const Layout = ({ children }) => {
   return (
