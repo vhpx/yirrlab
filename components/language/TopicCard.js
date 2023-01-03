@@ -42,7 +42,7 @@ export default function TopicCard({ status, topicName, children }) {
     <>
       <div className="bg-[#f7f7f7] drop-shadow-lg text-zinc-500 rounded-lg">
         <div
-          className={`flex justify-between items-center border-b-4 border-white rounded-t-lg p-4 px-5 ${css}`}
+          className={`cursor-default flex justify-between items-center border-b-4 border-white rounded-t-lg p-4 px-5 ${css}`}
         >
           <div className="text-xl md:text-2xl lg:text-4xl font-bold">{`Topic: ${topicName}`}</div>
           {statusBar}

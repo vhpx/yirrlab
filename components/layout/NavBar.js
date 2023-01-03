@@ -111,7 +111,7 @@ const NavBar = () => {
                     {user?.name || "No Name"}
                   </div>
                   <div className="text-sm text-[#b2b2b2]">{user?.email}</div>
-                  <div className="flex flex-col text-center gap-2 justify-center border-t pt-2 mt-2">
+                  <div className="flex md:hidden flex-col text-center gap-2 justify-center border-t pt-2 mt-2">
                     <div
                       href="/language"
                       className={`font-semibold px-4 py-1 rounded-full cursor-pointer ${

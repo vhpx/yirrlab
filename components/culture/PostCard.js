@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function PostCard({
   title,
@@ -11,7 +12,8 @@ export default function PostCard({
 }) {
   return (
     <>
-      <div
+      <Link
+        href="/culture/details"
         className={`mb-4 flex flex-col-reverse lg:grid lg:grid-cols-2 gap-4 px-4 ${
           disableBorder || " pb-4 border-b border-zinc-300"
         }`}
@@ -38,7 +40,7 @@ export default function PostCard({
             className="object-cover h-full lg:max-w-lg rounded-lg"
           />
         </div>
-      </div>
+      </Link>
     </>
   );
 }
