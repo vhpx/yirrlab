@@ -3,6 +3,30 @@ import PostCard from "../../components/culture/PostCard";
 import Sidebar from "../../components/layout/Sidebar";
 import culturePosts from "../../components/data/CulturePosts";
 import Layout from "../../components/layout/Layout";
+import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
+
+export const getServerSideProps = async (ctx) => {
+  const supabase = createServerSupabaseClient(ctx);
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  if (!session)
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+
+  return {
+    props: {
+      initialSession: session,
+      user: session.user,
+    },
+  };
+};
 
 export default function CulturePage() {
   const posts = culturePosts?.map((post, idx) => (
