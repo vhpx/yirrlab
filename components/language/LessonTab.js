@@ -18,10 +18,10 @@ export default function LessonTab({ icon, lessonName, status }) {
   return (
     <>
       <div
-        className={`flex p-2 px-4 items-center hover:cursor-pointer transition duration-500 ${css}`}
+        className={`flex p-2 px-4 items-center hover:cursor-pointer transition duration-300 ${css}`}
       >
         <div className="w-8 mr-5">{icon}</div>
-        <div className="text-2xl">{lessonName}</div>
+        <div className="md:text-lg lg:text-2xl font-semibold">{lessonName}</div>
       </div>
     </>
   );

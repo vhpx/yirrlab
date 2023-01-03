@@ -23,6 +23,7 @@ export default function TopicCard({ status, topicName, children }) {
 
   let statusBar = "";
   let css = "";
+
   switch (status) {
     case "complete":
       css = completeCss;
@@ -39,11 +40,11 @@ export default function TopicCard({ status, topicName, children }) {
 
   return (
     <>
-      <div className="bg-[#f7f7f7] h-fit drop-shadow-lg text-zinc-500">
+      <div className="bg-[#f7f7f7] drop-shadow-lg text-zinc-500 rounded-lg">
         <div
-          className={`flex justify-between items-center border-b-4 p-4 px-5 border-white ${css}`}
+          className={`flex justify-between items-center border-b-4 border-white rounded-t-lg p-4 px-5 ${css}`}
         >
-          <div className="text-4xl font-semibold">{`Topic: ${topicName}`}</div>
+          <div className="text-xl md:text-2xl lg:text-4xl font-bold">{`Topic: ${topicName}`}</div>
           {statusBar}
         </div>
         {children}
