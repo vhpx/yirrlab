@@ -36,7 +36,7 @@ const posts = [
     image: "/peacock.jpeg",
   },
 ].map((post, idx) => ({
-  id: idx,
+  id: idx.toString(),
   ...post,
 }));
 

@@ -5,7 +5,7 @@ export default function TopicCard({ status, topicName, children }) {
 
   const completeBar = (
     <div className="text-white font-semibold rounded-md text-xs p-1 px-2 bg-[#31a364]">
-      Complete
+      Completed
     </div>
   );
 

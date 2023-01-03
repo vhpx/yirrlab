@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function PostCard({
+  id,
   title,
   summary,
   author,
@@ -13,7 +14,7 @@ export default function PostCard({
   return (
     <>
       <Link
-        href="/culture/details"
+        href={`/culture/details?id=${id}`}
         className={`mb-4 flex flex-col-reverse lg:grid lg:grid-cols-2 gap-4 px-4 ${
           disableBorder || " pb-4 border-b border-zinc-300"
         }`}

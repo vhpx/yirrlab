@@ -10,12 +10,12 @@ export default function Sidebar({ page }) {
       </Accordion.Control>
       <Accordion.Panel>
         <Checkbox.Group orientation="vertical">
-          <Checkbox value="history" label="History" />
-          <Checkbox value="religion" label="Religion" />
-          <Checkbox value="art" label="Art" />
-          <Checkbox value="cuisine" label="Cuisine" />
-          <Checkbox value="dress" label="Dress" />
-          <Checkbox value="others" label="Others" />
+          <Checkbox value="history" label="History" color="green" />
+          <Checkbox value="religion" label="Religion" color="green" />
+          <Checkbox value="art" label="Art" color="green" />
+          <Checkbox value="cuisine" label="Cuisine" color="green" />
+          <Checkbox value="dress" label="Dress" color="green" />
+          <Checkbox value="others" label="Others" color="green" />
         </Checkbox.Group>
       </Accordion.Panel>
     </Accordion.Item>
@@ -29,10 +29,10 @@ export default function Sidebar({ page }) {
         </Accordion.Control>
         <Accordion.Panel>
           <Checkbox.Group orientation="vertical">
-            <Checkbox value="grammar" label="Grammar" />
-            <Checkbox value="reading" label="Reading" />
-            <Checkbox value="listening" label="Listening" />
-            <Checkbox value="speaking" label="Speaking" />
+            <Checkbox value="grammar" label="Grammar" color="green" />
+            <Checkbox value="reading" label="Reading" color="green" />
+            <Checkbox value="listening" label="Listening" color="green" />
+            <Checkbox value="speaking" label="Speaking" color="green" />
           </Checkbox.Group>
         </Accordion.Panel>
       </Accordion.Item>
@@ -43,9 +43,9 @@ export default function Sidebar({ page }) {
         </Accordion.Control>
         <Accordion.Panel>
           <Checkbox.Group orientation="vertical">
-            <Checkbox value="notStarted" label="Not started" />
-            <Checkbox value="inProgress" label="In progress" />
-            <Checkbox value="complete" label="Complete" />
+            <Checkbox value="notStarted" label="Not started" color="green" />
+            <Checkbox value="inProgress" label="In progress" color="green" />
+            <Checkbox value="complete" label="Complete" color="green" />
           </Checkbox.Group>
         </Accordion.Panel>
       </Accordion.Item>
@@ -56,9 +56,9 @@ export default function Sidebar({ page }) {
         </Accordion.Control>
         <Accordion.Panel>
           <Checkbox.Group orientation="vertical">
-            <Checkbox value="beginner" label="Beginner" />
-            <Checkbox value="intermediate" label="Intermediate" />
-            <Checkbox value="difficult" label="Difficult" />
+            <Checkbox value="beginner" label="Beginner" color="green" />
+            <Checkbox value="intermediate" label="Intermediate" color="green" />
+            <Checkbox value="difficult" label="Difficult" color="green" />
           </Checkbox.Group>
         </Accordion.Panel>
       </Accordion.Item>

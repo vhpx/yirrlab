@@ -32,6 +32,7 @@ export default function CulturePage() {
   const posts = culturePosts?.map((post, idx) => (
     <PostCard
       key={post.id}
+      id={post.id}
       title={post.title}
       summary={post.summary}
       author={post.author}

@@ -24,12 +24,12 @@ export const getServerSideProps = async (ctx) => {
   };
 };
 
-const LessonPage = () => {
+const QuizPage = () => {
   return (
     <Layout>
-      <div className="h-full max-h-full overflow-y-auto">Lesson Page</div>
+      <div className="h-full max-h-full overflow-y-auto">Quiz Page</div>
     </Layout>
   );
 };
 
-export default LessonPage;
+export default QuizPage;

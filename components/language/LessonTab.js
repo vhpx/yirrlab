@@ -24,7 +24,7 @@ export default function LessonTab({ icon, lessonName, status }) {
         className={`flex p-2 px-4 items-center hover:cursor-pointer transition duration-300 ${css}`}
       >
         <div className="w-8 mr-5">{icon}</div>
-        <div className="md:text-lg lg:text-2xl font-semibold">{lessonName}</div>
+        <div className="md:text-lg lg:text-xl font-semibold">{lessonName}</div>
       </Link>
     </>
   );
