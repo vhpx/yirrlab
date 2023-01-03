@@ -21,13 +21,7 @@ const Providers = ({ supabaseClient, initialSession, children }) => {
         }}
       >
         <UserDataProvider>
-          <MantineProvider
-            withGlobalStyles
-            withNormalizeCSS
-            theme={{
-              focusRing: "never",
-            }}
-          >
+          <MantineProvider withGlobalStyles withNormalizeCSS>
             <ModalsProvider>
               <NotificationsProvider position="bottom-left">
                 {children}
