@@ -75,7 +75,9 @@ export default function Sidebar({ page }) {
             <AdjustmentsHorizontalIcon className="w-5" />
           </span>
         </div>
-        <button className="bg-[#0da955] py-2 px-3 text-white">Apply</button>
+        <button className="bg-[#0da955] hover:bg-[#0da955]/90 transition duration-300 py-0.5 px-4 rounded font-semibold text-sm text-white">
+          Apply
+        </button>
       </div>
 
       <div className="flex flex-col h-full">
