@@ -41,8 +41,6 @@ const NavBar = () => {
   const isCulturePage = router.pathname.includes("/culture");
   const isSettingsPage = router.pathname.includes("/settings");
 
-  const isDev = process.env.NODE_ENV === "development";
-
   return (
     <>
       <Modal
@@ -81,7 +79,7 @@ const NavBar = () => {
                   : "bg-zinc-200 text-zinc-500 hover:bg-zinc-300 hover:text-zinc-600"
               } transition duration-300`}
               onClick={() =>
-                user?.id || isDev ? router.push("/language") : setOpened(true)
+                user?.id ? router.push("/language") : setOpened(true)
               }
             >
               Language
@@ -94,7 +92,7 @@ const NavBar = () => {
                   : "bg-zinc-200 text-zinc-500 hover:bg-zinc-300 hover:text-zinc-600"
               } transition duration-300`}
               onClick={() =>
-                user?.id || isDev ? router.push("/culture") : setOpened(true)
+                user?.id ? router.push("/culture") : setOpened(true)
               }
             >
               Culture
