@@ -17,9 +17,7 @@ export const getServerSideProps = async (ctx) => {
     data: { session },
   } = await supabase.auth.getSession();
 
-  const isDev = process.env.NODE_ENV === "development";
-
-  if (!session && !isDev)
+  if (!session)
     return {
       redirect: {
         destination: "/",
