@@ -38,6 +38,7 @@ const NavBar = () => {
 
   const isLanguagePage = router.pathname.includes("/language");
   const isCulturePage = router.pathname.includes("/culture");
+  const isSettingsPage = router.pathname.includes("/settings");
 
   const isDev = process.env.NODE_ENV === "development";
 
@@ -140,6 +141,18 @@ const NavBar = () => {
                     >
                       Culture
                     </div>
+                  </div>
+                  <div className="flex flex-col text-center gap-2 justify-center border-t pt-2 mt-2">
+                    <Link
+                      href="/settings"
+                      className={`font-semibold px-4 py-1 rounded-full cursor-pointer ${
+                        isSettingsPage
+                          ? "bg-[#0da955] text-white"
+                          : "bg-zinc-200 text-zinc-500 hover:bg-zinc-300 hover:text-zinc-600"
+                      } transition duration-300`}
+                    >
+                      Settings
+                    </Link>
                   </div>
                   <div className="flex justify-center border-t pt-2 mt-2">
                     <button

@@ -1,5 +1,31 @@
 import { Avatar, Textarea, TextInput } from "@mantine/core";
 import Layout from "../../components/layout/Layout";
+import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
+
+export const getServerSideProps = async (ctx) => {
+  const supabase = createServerSupabaseClient(ctx);
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  const isDev = process.env.NODE_ENV === "development";
+
+  if (!session && !isDev)
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+
+  return {
+    props: {
+      initialSession: session,
+      user: session?.user || null,
+    },
+  };
+};
 
 export default function SettingsPage() {
   return (
