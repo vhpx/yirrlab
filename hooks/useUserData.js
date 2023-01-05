@@ -11,26 +11,6 @@ export const UserDataProvider = ({ children }) => {
   const isLoading = !data && !error;
 
   const updateData = async (data) => {
-    if (data?.username?.length) {
-      if (data.username.length < 3 || data.username.length > 20) {
-        showNotification({
-          title: "Invalid username",
-          message: "Username must be between 3 and 20 characters",
-          color: "red",
-        });
-        return;
-      }
-
-      if (!/^[a-zA-Z0-9_]+$/.test(data.username)) {
-        showNotification({
-          title: "Invalid username",
-          message: "Username can only contain letters, numbers and underscores",
-          color: "red",
-        });
-        return;
-      }
-    }
-
     const response = await fetch("/api/user", {
       method: "PUT",
       headers: {
@@ -46,12 +26,6 @@ export const UserDataProvider = ({ children }) => {
         message: "Your profile has been updated",
         color: "teal",
       });
-    } else if ((await response.json())?.error?.includes("duplicate key")) {
-      showNotification({
-        title: "Username already taken",
-        message: "Please choose another username",
-        color: "red",
-      });
     } else {
       showNotification({
         title: "Failed to update profile",
@@ -61,21 +35,9 @@ export const UserDataProvider = ({ children }) => {
     }
   };
 
-  const parseData = (data) => {
-    if (!data) return null;
-    return {
-      id: data.id,
-      email: data.email,
-      username: data.username,
-      birthday: data.birthday,
-      displayName: data.display_name,
-      createdAt: data.created_at,
-    };
-  };
-
   const values = {
     isLoading,
-    data: parseData(data),
+    data,
     updateData,
   };
 

@@ -1,6 +1,7 @@
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/solid";
 import { Accordion, Checkbox } from "@mantine/core";
 import SearchBar from "../common/SearchBar";
+import GreenButton from "../buttons/GreenButton";
 
 export default function Sidebar({ page }) {
   const cultureAccordion = (
@@ -75,9 +76,7 @@ export default function Sidebar({ page }) {
             <AdjustmentsHorizontalIcon className="w-5" />
           </span>
         </div>
-        <button className="bg-[#0da955] hover:bg-[#0da955]/90 transition duration-300 py-0.5 px-4 rounded font-semibold text-sm text-white">
-          Apply
-        </button>
+        <GreenButton label="Apply" />
       </div>
 
       <div className="flex flex-col h-full">

@@ -12,7 +12,9 @@ export const getServerSideProps = async (ctx) => {
     data: { session },
   } = await supabase.auth.getSession();
 
-  if (!session)
+  const isDev = process.env.NODE_ENV === "development";
+
+  if (!session && !isDev)
     return {
       redirect: {
         destination: "/",
@@ -23,7 +25,7 @@ export const getServerSideProps = async (ctx) => {
   return {
     props: {
       initialSession: session,
-      user: session.user,
+      user: session?.user || null,
     },
   };
 };

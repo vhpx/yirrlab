@@ -15,7 +15,7 @@ const fetchUser = async (req, res) => {
 
   const { data, error } = await supabase
     .from("users")
-    .select("id, name, email, created_at")
+    .select("id, name, email, bio, created_at")
     .eq("id", user?.id)
     .single();
 
@@ -37,11 +37,11 @@ const updateUser = async (req, res) => {
   if (userError) return res.status(401).json({ error: userError.message });
   if (!user?.id) return res.status(401).json({ error: "User not found" });
 
-  const { displayName, email } = req.body;
+  const { name, bio } = req.body;
 
   const { data, error } = await supabase
     .from("users")
-    .update({ name: displayName, email })
+    .update({ name, bio })
     .eq("id", user.id);
 
   console.log(data, error);
