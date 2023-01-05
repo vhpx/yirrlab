@@ -38,7 +38,7 @@ export const getServerSideProps = async (ctx) => {
 };
 
 const LessonPage = () => {
-  const availableTabs = ["excercises", "comments"];
+  const availableTabs = ["exercises", "comments"];
   const [selectedTab, setSelectedTab] = useState(availableTabs[0]);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -125,7 +125,7 @@ const LessonPage = () => {
               ))}
             </Tabs.List>
 
-            <Tabs.Panel className="pt-8" value="excercises">
+            <Tabs.Panel className="pt-8" value="exercises">
               {isFinished ? (
                 <div>
                   <div className="text-4xl text-[#33363f] flex gap-2 justify-center items-center font-bold mb-5">
