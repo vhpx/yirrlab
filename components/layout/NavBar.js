@@ -27,7 +27,8 @@ const NavBar = () => {
     // Auto redirect to home page
     if (
       router.pathname.includes("/language") ||
-      router.pathname.includes("/culture")
+      router.pathname.includes("/culture") ||
+      router.pathname.includes("/settings")
     )
       router.push("/");
   };

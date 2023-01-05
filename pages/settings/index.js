@@ -1,6 +1,9 @@
 import { Avatar, Textarea, TextInput } from "@mantine/core";
 import Layout from "../../components/layout/Layout";
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import GreenButton from "../../components/buttons/GreenButton";
+import { useUserData } from "../../hooks/useUserData";
+import { useEffect, useState } from "react";
 
 export const getServerSideProps = async (ctx) => {
   const supabase = createServerSupabaseClient(ctx);
@@ -28,32 +31,61 @@ export const getServerSideProps = async (ctx) => {
 };
 
 export default function SettingsPage() {
+  const { data: user, updateData } = useUserData();
+
+  const [email, setEmail] = useState(user?.email || "");
+  const [name, setName] = useState(user?.name || "");
+  const [bio, setBio] = useState(user?.bio || "");
+
+  useEffect(() => {
+    if (!user) return;
+    setEmail(user?.email);
+    setName(user?.name);
+    setBio(user?.bio);
+  }, [user]);
+
+  const [isSaving, setIsSaving] = useState(false);
+
+  const handleSave = async () => {
+    setIsSaving(true);
+    await updateData({ name, bio });
+    setIsSaving(false);
+  };
+
   return (
-    <>
-      <Layout>
-        <div className=" bg-[#f6f6f6] h-screen flex justify-center items-center">
-          <div className="h-full w-full md:w-[60%] lg:w-[40%] flex flex-col gap-8 items-center bg-white p-8">
-            <div className="text-3xl font-semibold">Account settings</div>
-            <Avatar src="peacock.jpeg" className="w-44 h-44 rounded-full" />
-            <div className="w-full flex flex-col gap-4">
-              <TextInput size="lg" label="Name" />
-              <TextInput size="lg" label="Email" />
-              <Textarea
-                size="lg"
-                label="About"
-                autosize
-                minRows={3}
-                maxRows={7}
-              />
-              <div className="text-right ">
-                <button className="text-white mt-2 rounded-full hover:cursor-pointer px-4 bg-[#0aa956] p-2">
-                  SAVE
-                </button>
-              </div>
-            </div>
+    <Layout>
+      <div className="bg-[#f6f6f6] h-screen flex justify-center items-center">
+        <div className="h-full md:-translate-y-16 md:h-fit rounded-lg w-full border-2 border-[#0da955] shadow-xl md:max-w-2xl flex flex-col gap-4 items-center bg-white p-4 md:p-8">
+          <div className="text-3xl font-bold">Settings</div>
+          <Avatar src="peacock.jpeg" className="w-40 h-40 rounded-full" />
+          <div className="w-full flex flex-col gap-4">
+            <TextInput
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              label={<div className="font-bold">Name</div>}
+              disabled={isSaving}
+            />
+            <TextInput
+              value={email}
+              label={<div className="font-bold">Email</div>}
+              disabled
+            />
+            <Textarea
+              value={bio}
+              onChange={(e) => setBio(e.target.value)}
+              label={<div className="font-bold">Biography</div>}
+              disabled={isSaving}
+              minRows={3}
+              maxRows={5}
+              autosize
+            />
+
+            <GreenButton className="self-end" onClick={handleSave}>
+              Save
+            </GreenButton>
           </div>
         </div>
-      </Layout>
-    </>
+      </div>
+    </Layout>
   );
 }

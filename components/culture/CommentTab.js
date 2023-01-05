@@ -2,6 +2,7 @@ import { Rating, Textarea } from "@mantine/core";
 import UserComment from "./UserComment";
 import { useState } from "react";
 import { useUserData } from "../../hooks/useUserData";
+import GreenButton from "../buttons/GreenButton";
 
 const CommentTab = () => {
   const [comment, setComment] = useState("");
@@ -55,8 +56,8 @@ const CommentTab = () => {
 
   return (
     <div>
-      <div className="flex flex-col mb-4">
-        <div className="flex gap-4 items-center mb-2">
+      <div className="flex flex-col mb-4 gap-2">
+        <div className="flex gap-4 items-center">
           <div>How do you want to rate this content?</div>
           <Rating value={rating} onChange={setRating} />
         </div>
@@ -75,12 +76,10 @@ const CommentTab = () => {
             },
           }}
         />
-        <button
-          className="self-end mt-2 bg-[#0da955] hover:bg-[#0da955]/90 transition duration-300 py-0.5 px-4 rounded-full font-semibold text-sm text-white"
-          onClick={submitComment}
-        >
+
+        <GreenButton className="self-end" onClick={submitComment}>
           Comment
-        </button>
+        </GreenButton>
       </div>
 
       <div className="grid gap-6">
