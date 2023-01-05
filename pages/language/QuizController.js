@@ -1,37 +1,29 @@
+import GreenButton from "../../components/buttons/GreenButton";
 import CircleIcon from "../../components/language/CircleIcon";
 
-export default function QuizController() {
+export default function QuizController({
+  checked,
+  finished,
+  statuses,
+  onCheck,
+  onNext,
+  disabled,
+}) {
   return (
-    <>
-      <div className="p-2 gap-3 flex items-center flex-row-reverse">
-        <div className="bg-[#26b266] text-white hover:cursor-pointer px-2 py-1">
-          Check
-        </div>
+    <div className="p-2 gap-3 flex items-center self-end">
+      {statuses && (
         <div className="flex gap-1">
-          <CircleIcon className="h-3 w-3 hover:cursor-pointer" />
-          <CircleIcon
-            className="h-3 w-3 hover:cursor-pointer"
-            status="correct"
-          />
-          <CircleIcon
-            className="h-3 w-3 hover:cursor-pointer"
-            status="incorrect"
-          />
-          <CircleIcon
-            className="h-3 w-3 hover:cursor-pointer"
-            status="selected"
-          />
-          <CircleIcon className="h-3 w-3 hover:cursor-pointer" />
-          <CircleIcon
-            className="h-3 w-3 hover:cursor-pointer"
-            status="correct"
-          />
-          <CircleIcon
-            className="h-3 w-3 hover:cursor-pointer"
-            status="incorrect"
-          />
+          {statuses.map((status, index) => (
+            <CircleIcon key={index} className="h-3 w-3" status={status} />
+          ))}
         </div>
-      </div>
-    </>
+      )}
+
+      <GreenButton
+        label={checked ? (finished ? "Finish" : "Next") : "Check"}
+        onClick={checked ? onNext : onCheck}
+        disabled={disabled}
+      />
+    </div>
   );
 }

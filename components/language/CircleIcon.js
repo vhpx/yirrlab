@@ -1,4 +1,4 @@
-export default function CircleIcon({ status, className }) {
+export default function CircleIcon({ status, className, onClick }) {
   let bgColor = "";
   switch (status) {
     case "correct":
@@ -14,5 +14,7 @@ export default function CircleIcon({ status, className }) {
       bgColor = "bg-white border border-zinc-600/70";
   }
 
-  return <div className={`${bgColor} ${className} rounded-full`}></div>;
+  return (
+    <div className={`${bgColor} ${className} rounded-full`} onClick={onClick} />
+  );
 }
