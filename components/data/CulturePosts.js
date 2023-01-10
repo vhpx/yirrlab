@@ -2,7 +2,7 @@ const posts = [
   {
     title: "Yirrgay Dialects",
     summary:
-      "Yirrgay is a dialect of the Yolngu language spoken by the Yirrganydji people of northeast Arnhem Land, Australia.",
+      "Yirrgay is a dialect of the Djabugay language spoken by the Yirrganydji people of North Queensland, Australia.",
     author: "Yirrganydji",
     date: "2021-08-01",
     tags: "History, Religion, Cuisine",
@@ -20,7 +20,7 @@ const posts = [
   {
     title: "Yirrgay Dialects",
     summary:
-      "Yirrgay is a dialect of the Yolngu language spoken by the Yirrganydji people of northeast Arnhem Land, Australia.",
+      "Yirrgay is a dialect of the Djabugay language spoken by the Yirrganydji people of North Queensland, Australia.",
     author: "Yirrganydji",
     date: "2021-08-01",
     tags: "History, Religion, Cuisine",
